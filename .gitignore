@@ -1,5 +1,6 @@
 cmsbuilder/etc
 cmsbuilder/tmp
+cmsbuilder/Config.pm
 *.zip
 *.sql
 *.txt
