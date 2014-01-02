@@ -1,0 +1,45 @@
+.footer_inner, .phone, #moto .header, .content {height: 1%;}
+*html .body {height: 100%;}
+*html .body, *html .footer {width:expression((document.documentElement.clientWidth || document.body.clientWidth) < 1000 ? "1000px" : "auto");}
+*html .evoo {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/evoo.png');}
+*html .bg {height:expression(document.body.clientHeight-187); width:expression(document.body.clientWidth-50);}
+*html .content {height: 720px;}
+.phone address {padding: 2px 0;}
+#samsung .top_shadow {padding-top: 22px;}
+
+*html .tl_shadow {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/top-left.png');}
+*html .tr_shadow {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/top-right.png');}
+*html .bl_shadow {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/shadow-left.png');}
+*html .br_shadow {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/shadow-right.png');}
+*html .tc_shadow {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/top.png', sizingMethod='scale');}
+*html .bc_shadow {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/shadow.png', sizingMethod='scale');}
+
+
+*html .footer_evoo {width: expression(this.firstChild.width); filter: expression("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+this.firstChild.src+"', sizingMethod='image')"); background: expression("transparent url("+this.firstChild.src.replace(".png", ".gif")+") no-repeat"); backgr\ound: none !important;}
+*html .footer_evoo img {behavior: expression(this.style.visibility="hidden");}
+*html .cat_descr p {height: 100px;}
+.container, .review_block, .tags {overflow: hidden;}
+*html .container, *html .review_block, *html .tags {overflow: visible ; height: 1%;}
+
+
+*html .catalog, *html .cat_vertline {height: 250px;}
+*html .cat_list {height: 253px;}
+*html .right_col_inner {width: 99%;}
+
+/* ебаните этот стиль если нужны закругленые углы */
+*html .cat_corners {display: none;}
+*html .otzivi_name {margin: 3px 9px 31px 44px;}
+.otzivi_block form {width: 412px;}
+.otzivi_block form div input {margin: 0;}
+*html .ie6omg {height: 150px;}
+.otzivi_block form textarea {margin-left: 10px;}
+.cat_container, .phone_descr, .info_container, .otzivi_block {height: 1%;}
+
+#moto .tags li.sel, #nokia .tags li.sel, #sony .tags li.sel {_background: url(i/nokia/tag-right-ie.png) no-repeat right top;}
+#moto .tags li.sel a, #nokia .tags li.sel a, #sony .tags li.sel a {_background: url(i/nokia/tag-left-ie.png) no-repeat left top;}
+#moto .tags li.sel span, #nokia .tags li.sel span, #sony .tags li.sel span {_background: url(i/nokia/tag-sel-ie.png) repeat-x #9dfa6a;}
+
+#samsung .tags li.sel {_background: url(i/samsung/tag-right-ie.png) no-repeat right top;}
+#samsung .tags li.sel a {_background: url(i/samsung/tag-left-ie.png) no-repeat left top;}
+#samsung .tags li.sel span {_background: url(i/samsung/tag-sel-ie.png) repeat-x;}
+*html .tags li span {padding: 3px 2px 10px 0; margin: 0 13px 0 10px;}

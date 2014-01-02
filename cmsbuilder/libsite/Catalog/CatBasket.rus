@@ -1,0 +1,415 @@
+
+package CatBasket;
+use strict qw(subs vars);
+use utf8;
+
+our @ISA = ('plgnSite::Object','CMSBuilder::DBI::Array');
+
+use CMSBuilder;
+use CMSBuilder::Utils;
+use CMSBuilder::IO;
+use plgnUsers;
+use plgnAccess;
+
+sub _cname {'Корзина'}
+#sub _aview {qw/name photo desc onpage previewtype/}
+#sub _have_icon {1}
+
+sub _add_classes {qw(CatWareHandler)}
+
+sub _props
+{
+	
+}
+
+sub _rpcs {qw(catalog_add_ware catalog_edit_ware catalog_update_basket catalog_delete_from_basket site_catalog_minibasket site_content)}
+
+
+sub name {'Корзина'}
+
+sub catalog_delete_from_basket
+{
+	my $o = shift;
+	my $r = shift;
+	
+	my $url = $r->{url};
+	
+	my $h = cmsb_url($url);
+	return unless $h;
+	
+	if($o->elem_cut($h->enum))
+	{
+		$h->del();
+		
+		if($o->len)
+		{
+			print
+			'
+			var e = document.getElementById("row_' . $url . '");
+			if ($.browser.msie)
+			{
+				$("#row_' . $url . ' td *").fadeOut(1000, function() { $(e).remove() } )
+			}
+			else $(e).animate( { height: 0 }, 500, "linear", function() { $(this).remove() } )
+			
+			catalog_update_basket(document.getElementById("basket_table"));
+			';
+		}
+		else
+		{
+			print
+			'
+			var e = document.getElementById("basket_table");
+			var p = e.parentNode;
+			p.removeChild(e);
+			
+			p.innerHTML = "<div class=\\"message\\">Корзина пуста.</div>"
+			';
+		}
+	}
+	else
+	{
+		print 'alert("Невозможно удалить из корзины товар: ' . $h->{ware}->name . '")';
+	}
+	
+	
+}
+
+sub catalog_update_basket
+{
+	my $o = shift;
+	my $r = shift;
+	
+	my $summ;
+	my $count;
+	
+	for my $h ($o->get_all)
+	{
+		$h->{count} = $r->{$h->myurl};
+		$h->save();
+		
+		print 'document.getElementById("basket_' . $h->myurl . '_summ").innerHTML = "' . $h->summ . "<span> руб.</span>\";\n";
+		
+		$summ += $h->summ;
+		$count += $h->{count};
+	}
+	
+	print 'document.getElementById("basket_all_summ").innerHTML = ' . $summ . ";\n";
+	print 'document.getElementById("basket_all_count").innerHTML = ' . $count . ";\n";
+	
+	#print 'alert("done")';
+}
+
+sub site_content
+{
+	my $o = shift;
+	my $r = shift;
+#print '<script>$(".catalog").css({display:"none"})</script>';
+	if($r->{action} eq 'submit')
+	{
+		unless ($o->len && $o->elem(1)) { print '<div class="message">Ошибка! Корзина пуста.<div>'; return; }
+		
+		my $cat_root = $o->elem(1)->{ware}->catalog_root;
+		
+		
+		my $orders = $cat_root->{orders};
+		unless ($orders) { print '<div class="message">Ошибка! Не найдена папка с заказами.<div>'; return; }
+		
+		#------------------- регистрируем нового пользователя, если оформил заказ Гость, и заходим сразу под новым пользователем --------------------------
+		
+		my $myregistration = modRegistration->new(1);
+				
+		if($r->{'reg'} eq "1")
+		{
+			if(user_classes_sel_one(' login = ? ',$r->{'email'}))
+			{
+				print
+				'
+				<div class="message"><span class="head">Ошибка!</span> Пользователь с такой почтой уже существует.</div>
+				<p>Система может <a href="',$myregistration->site_href(),'?act=remind&email=',$r->{'email'},'">выслать ключ</a> на этот почтовый ящик. Ключ поможет сменить пароль.</p>
+				';
+				return;
+			}
+	
+			my $tu;
+			acs_off
+			{
+				$tu = $myregistration->{'class'}->cre();
+				$tu->{'login'} = $tu->{'email'} = $r->{'email'};
+				$tu->{'pas'} = genpas();
+				$tu->{'tel'} = $r->{'telephone'};
+				$tu->save();
+				$myregistration->{'group'}->elem_paste($tu);
+			};
+			
+			plgnUsers->login($tu->{'login'},$tu->{'pas'});
+			
+			sendmail
+			(
+				'to' => $r->{'emails'},
+				'from' => '[info@evoo.ru]', #$o->root->{'email'},
+				'subj' => '['.$o->root->{'bigname'}.'] Вы зарегистрировались на Evoo.ru',
+				'text' => 'Ваш логин: '.$tu->{'login'}."\n".'Ваш пароль: '.$tu->{'pas'}
+			);
+		}
+		
+		if($r->{'reg'} eq "0")
+		{
+			if(!plgnUsers->login($r->{'email'},$r->{'password'}))
+			{
+				print '<div class="message"><span class="head">Ошибка!</span> ',plgnUsers->last_error(),'</div>';
+				return;
+			}
+		}
+		#-------------------
+		
+		
+		my $order = CatOrder->cre();
+		#$order->ochown($user);
+		$order->{user} = $user;
+		
+		if ($user->{orders}) { $user->{orders}->elem_paste($order) };
+		map { $o->elem_cut($_->enum); $order->elem_paste($_); } $o->get_all();
+		
+		acs_off { $orders->elem_paste($order); };
+		
+		
+		my $mess =
+		'
+		<html>
+			<body>
+			<h2>Заказ #' . $order->{ID} . '</h2>
+			
+			
+			<p>' . $order->email_content . '</p>
+			
+			<hr/>
+			
+			<small>Внутренний код заказа: ' . $order->myurl . '</small>
+			</body>
+		</html>
+		';
+				
+		#for my $email (split /\s+/, $orders->{emails})
+		#{
+		#	1 || sendmail
+		#	(
+		#		to => $email,
+		#		from => $user->name . ' <' . $user->{'email'} . '>',
+		#		subj => 'Заказ #' . $order->{ID} . ' (' . $user->name . ')',
+		#		text => $mess,
+		#		ct => 'text/html'
+		#	)
+		#	or warn 'Can`t email: ' . $!;
+		#}
+
+		$order->{recipient} = $r->{'recipient'};
+		$order->{recipientaddr} = $r->{'recipientaddr'};
+		$order->{recipientcont} = $r->{'recipientcont'};
+		$order->{recipientdate} = $r->{'recipientdate'};
+		$order->{recipienttime} = $r->{'recipienttime'};
+		$order->{payment}->{type} = $r->{'type'};
+		$order->{payment}->save();
+		$order->save();
+		
+		$user->{'tel'} = $r->{'telephone'};
+		$user->save();
+		
+		print '<script>$("#payment").slideUp(1000)</script><div class="message">Спасибо! Заказ передан в обработку.<div>';
+		#$o->del;
+		#$order->forms_site_content_begin();
+		#$order->{'payment'}->forms_site_content_begin();
+		return;
+	} #-------------------------------------------------------------------------
+	
+if ($o->len){
+   my $summ;
+   print '<div class="steps"><div class="block1-1" style="border: 0;">
+<div class="block2-7">
+<div class="block2-8">
+<div class="block1-2">
+<div class="block1-3">
+<div class="block1-4">
+<div class="block1-5">
+<div class="block1-6" style="padding: 0;">
+<div class="block2-9">
+<div class="block2-10">
+<div class="block2-11">
+<h2><img src="/i/basket/of.png" alt="Оформление заказа" /></h2>
+<div class="zakaz-tbl"><table id="basket_table" action="/srpc/'.$o->myurl.
+	'/catalog_update_basket" onkeyup="catalog_basket_onkeyup(this)">';
+   for my $to ($o->get_all){
+      print '      <tr>
+	 <th>
+	    <a href="'.$to->{ware}->site_href.'" class="bsk-price-img">
+	    <img src="'.$to->{ware}->{mediumphoto1}->href.'" width="54">
+	    <div class="bsk-price-descr">
+	       <h4><a href="'.$to->{ware}->site_href.'">'.$to->{ware}->{name}.'</a></h4>
+	       <p>'.$to->{ware}->site_props.'</p>
+	    </div>
+	 </th>
+	 <td>
+	    <span class="bsk-price-title">Цена</span>
+	    <span class="bsk-price"><span style="display:none" id="basket_' . $to->myurl . '_summ"></span>'.$to->{ware}->{price}.' <span>руб</span></span>
+	 </td>
+	 <td>
+	    <span class="bsk-price-kolvo">Кол-во</span>
+	    <input type="text" name="'.$to->myurl.'" value="'.$to->{count}.'">
+	 </td>
+	 <td>
+	    <span class="bsk-price-del">Удалить</span>
+	    <a href="#" class="bsk-delbutton" title="Удалить" action="/srpc/'.$o->myurl.'/catalog_delete_from_basket" url="'.$to->myurl.'" onclick="catalog_delete_from_basket(this);return false"><img src="/i/basket/del.png" alt="Удалить"></a>
+	 </td>
+      </tr>';
+      $summ+=$to->summ;
+   }
+   print '</table></div></div></div></div></div></div></div></div></div></div>
+</div></div>
+<div class="big-button big-button-sel">
+   <a href="#" class="supernext">
+      <span>
+	 <span>Стоимость без учёта доставки: <b><b id="basket_all_summ">'.$summ.'</b> руб.</b>
+	 </span>
+      </span>
+   </a>
+</div>
+<span id="basket_all_count" style="display:none"></span>
+</div>';
+=head
+<div class="steps" style="display: none;">
+<div class="block1-1" style="border: 0;">
+<div class="block2-7" style="background: url(i/basket/bg44.jpg) repeat-y right top;">
+<div class="block2-8" style="background: url(i/basket/bg4.jpg) no-repeat right top;">
+<div class="block1-2">
+<div class="block1-3">
+<div class="block1-4">
+<div class="block1-5">
+<div class="block1-6" style="padding: 0;">
+<div class="block2-9">
+<div class="block2-10" style="background: url(i/basket/rb3.gif) no-repeat right bottom;">
+<div class="block2-11" style="background: url(i/basket/lb3.gif) no-repeat left bottom;">
+<h2><img src="i/basket/avtr.png" alt="Авторизация" /></h2>
+<div class="bsk-email">
+   <span>Мой адрес электронной почты</span>
+   <input class="bsk-email1" type="text" />
+   <input class="bsk-email2" type="image" src="i/basket/gogo.gif" />
+</div>
+<div class="me-new">
+   <div class="me-new-yeah"><label><input type="radio" name="ia" /> Я новый покупатель</label></div>
+   <div class="me-lost-pass">
+      <label><input type="radio" name="ia" /> Я уже оформлял покупки и зарегистрирован,</label>
+      <div>
+	 <span class="left">мой пароль</span>
+	 <input class="bsk-email1" style="width: 155px;" type="text" disabled="disabled" />
+	 <input class="bsk-email2" type="image" src="i/basket/gogo.gif" />
+      </div>
+   </div>
+</div>
+<div class="lost-pass">
+   <span><a href="#">Я забыл пароль</a></span>
+   <input class="bsk-email1" style="width: 110px;" type="text" disabled="disabled" value="Zabil-parol@site.ru" />
+   <input class="bsk-email2" type="image" src="i/basket/gogo.gif" />
+</div></div></div></div></div></div></div></div></div></div></div></div>
+<div class="block4-1">
+<div class="block4-2">
+<div class="block4-3">
+<div class="block4-4">
+<div class="block4-5">
+<a href="#" class="left superprev"><img src="i/basket/prev.png" alt="" /></a>
+<a href="#" class="right supernext"><img src="i/basket/next.png" alt="" /></a>
+</div></div></div></div></div></div>
+
+';
+=cut
+} else {
+   print '<div class="message">Корзина пуста.</div>';
+}
+#print '</div>';
+return;	
+	print '<div class="catalog-basket">';
+	
+	if($o->len)
+	{
+		my $summ;
+		my $count;
+		
+		print
+		'
+		<table width="100%" id="basket_table" action="/srpc/'. $o->myurl . '/catalog_update_basket" onkeyup="catalog_basket_onkeyup(this)">
+		';
+		
+		for my $to ($o->get_all)
+		{
+			next unless $to->{ware};
+			print #' . (($to->{prop}) ? '<span>' . cmsb_url($to->{prop})->{name} . '</span>' : '') . ' 
+			'
+			<tr id="row_' . $to->myurl . '" class="basketrow">
+				<td>
+				<div class="catalog">
+										<img alt="" style="left: -1px; top: -1px;" class="cat_corners" src="i/cat-lt.png"/>
+										<img alt="" style="right: -1px; top: -1px;" class="cat_corners" src="i/cat-rt.png"/>
+										<img alt="" style="left: -1px; bottom: -1px;" class="cat_corners" src="i/cat-lb.png"/>
+										<img alt="" style="right: -1px; bottom: -1px;" class="cat_corners" src="i/cat-rb.png"/>
+										<h1><a href="' . $to->{ware}->site_href . '">' . $to->{ware}->name . '</a></h1>
+										
+										<table width="100%" cellspacing="10">
+										<tr>
+											<td class="basket-photo" width="20%" align="center">
+												<a href="' . $to->{ware}->site_href . '"><img src="' . $to->{ware}->{mediumphoto1}->href . '"/></a></td>
+											<td class="basket-descr" width="20%">
+															<h4><a href="' . $to->{ware}->site_href . '">' . $to->{ware}->name . '</a></h4>
+											</td>
+											<td width="20%" class="basket-price"><span id="basket_' . $to->myurl . '_summ">' . $to->summ . '<span> руб.</span></span></td>
+											<td width="20%" class="basket-number"><input style="font-size: 20px" type="text" size="3" name="' . $to->myurl . '" value="' . $to->{count} . '"/></td>
+											<td width="20%" align="center" class="basket-del"><a href="#" action="/srpc/'. $o->myurl . '/catalog_delete_from_basket" url="' . $to->myurl . '" onclick="catalog_delete_from_basket(this); return false;" title="Удалить из корзины">Удалить</td>
+										</tr>
+										</table>	
+											
+										</div>
+				</div>
+				</td>
+				
+			</tr>
+			';
+			
+			
+			$summ += $to->summ;
+			$count += $to->{count};
+		}
+		
+		my $newclient = '';
+		
+		print
+		'
+		</table>
+		<div class="price-block">';
+		# print	'<div class="price-confirm"><a title="Подтвердить не регистрируясь" href="#"><img alt="Подтвердить" src="img/confirm-button.png"/></a></div>' if !is_guest($user); #сразу оформляем товар
+		print	'<div class="price-confirm"><a class="thickbox" title="Оформить заказ" href="#TB_inline?height=400&width=300&inlineId=regform&modal=true">Сделать заказ</a></div>';
+		#показываем форму регистриации
+		print	'<div class="count"><span class="itogo">Итого: </span><span id="basket_all_summ" class="digit">' . $summ . '</span><span>&nbsp;руб.</span> (<span id="basket_all_count" class="digit">' . $count . '</span><span>&nbsp;шт.</span>)</div>
+		</div>
+		';
+		
+		
+		if (is_guest($user))
+		{
+			$newclient = '
+			<div class="pane greenpane">
+				<h2>Шаг 1. Информация о Вас</h2>
+				<div class="content">
+					<div class="check">
+						<input type="radio" checked="checked" value="1" name="reg" id="reg" onclick="$(\'div.pass\').hide(500)"/><br/>
+						<label for="reg">Это мой первый заказ</label>
+					</div>
+					<div class="check">
+						<input type="radio" value="0" name="reg" id="noreg" onclick="$(\'div.pass\').show(500)"/><br/>
+						<label for="noreg">Я уже делал заказ раньше</label>
+					</div>
+					<div class="email" style="clear:both">
+						<p>Введите адрес электронной почты:</p><input class="e-mail" name="email" type="text"/>
+					</div>
+					<div class="pass">
+						<p>Введите пароль:</p><input name="password" type="password"/>
+					</div>
+					<div class="tel">
+						<p style="display:block;width:90%;">Укажите телефон, и можете переходить к шагу 

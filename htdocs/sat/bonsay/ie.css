@@ -1,0 +1,29 @@
+.lx_menu li, .cat-inner, .catalog, .same-block, .inner-container {height: 1%;} 
+*html .body {width:expression((document.documentElement.clientWidth || document.body.clientWidth) < 996 ? "996px" : "auto");}
+*html .footer {width:expression((document.documentElement.clientWidth || document.body.clientWidth) < 926 ? "926px" : "auto");}
+*html .body {height: 100%;}
+*html .footer-left div {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/footer-left.png');}
+*html .footer-right div {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/footer-right.png');}
+*html .footer-inner {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/footer.png', sizingMethod='scale');}
+*html .header-left div {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/header-left.png');}
+*html .header-right div {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/header-right.png');}
+*html .header-center {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/header.png', sizingMethod='scale');}
+*html .tags-left div {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/tags-left.png');}
+*html .tags-right div {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/tags-right.png');}
+*html .tags table td.tags-inner {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/tags.png', sizingMethod='scale');}
+*html .cat-lt div, *html .select .cat-lt div {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/lt.png');}
+*html .cat-rt div, *html .select .cat-rt div {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/rt.png');}
+*html .cat-lb div, *html .select .cat-lb div {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/lb.png');}
+*html .cat-rb div, *html .select .cat-rb div {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/rb.png');}
+
+*html .menu-items div a {height: 22px;}
+*html .cat-inner {height: 200px;}
+*html .copy .evoo {background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/evoo.png');}
+
+*html .tags ul {position: relative;}
+*html .tags {position: static;}
+
+
+*html .select .cat-t div {border-top: 1px solid #d3d3d3;}
+*html .select .cat-b div {border-bottom: 1px solid #d3d3d3;}
+*html .select .cat-inner {border-left: 1px solid #d3d3d3; border-right: 1px solid #d3d3d3;}

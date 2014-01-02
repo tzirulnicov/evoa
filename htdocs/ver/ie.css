@@ -1,0 +1,42 @@
+.contacts, .footer ul, .main, .cat_container, .phone_descr, .info_container, .otzivi_block {height: 1%;}
+
+.search input {width: 130px;}
+*html .body {height: 100%;}
+*html .body, *html .footer {width:expression((document.documentElement.clientWidth || document.body.clientWidth) < 1000 ? "1000px" : "auto");}
+*html .ie6_lt {}
+*html .ie6_rt {right: -1px !important;}
+*html .ie6_lb {bottom: -1px !important;}
+*html .ie6_rb {bottom: -1px !important; right: -1px !important;}
+*html .menu table a {padding: 0;}
+
+/* yeah i hate IE!!!! }:-[ */
+*html .menu {overflow: hidden;}
+*html .footer ul {float: left;}
+*html .footer li {margin: 0 50px 0 0;}
+*html .brands ul.evoo li {background-image: expression(this.previousSibling==null?'none':'');}
+*html .brands li span {margin: 0 auto; display: block; width: expression(this.firstChild.width); filter: expression("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+this.firstChild.src+"', sizingMethod='image')"); background: expression("transparent url("+this.firstChild.src.replace(".png", ".gif")+") no-repeat"); backgr\ound: none !important;}
+*html .brands li img {behavior: expression(this.style.visibility="hidden"); display: block;}
+/* Пыщпыщупячка бугага я сашелсума!!!!! */
+*html .brands li, *html .brands li a {height: 1%; vertical-align: top; cursor: pointer;}
+*html .about {position: relative;}
+*html .catalog, *html .cat_vertline {height: 250px;}
+*html .cat_list {height: 475px;}
+*html .right_col_inner {width: 99%;}
+
+/* ебаните этот стиль если нужны закругленые углы */
+*html .cat_corners {display: none;}
+*html .otzivi_name {margin: 3px 9px 31px 44px;}
+.otzivi_block form {width: 412px;}
+.otzivi_block form div input {margin: 0;}
+*html .ie6omg {height: 150px;}
+*html .otzivi_block form textarea {margin-left: 10px;}
+
+*html .brand_list li, *html .brand_list a {height: 1%; vertical-align: top;}
+
+*+html .cat_list {bottom: 3px;}
+*html .menu table a:hover {
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/hover.png', sizingMethod='scale');}
+*html .menu table a.sel, *html .menu table a.sel:hover 	{
+		background: none;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='i/sel.png', sizingMethod='scale');}

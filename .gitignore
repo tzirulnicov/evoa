@@ -1,0 +1,5 @@
+cmsbuilder/etc
+cmsbuilder/tmp
+*.zip
+*.sql
+*.txt

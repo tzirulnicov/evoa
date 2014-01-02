@@ -1,0 +1,356 @@
+/* Main
+======================================= */
+html, body {height: 100%; width: 100%;}
+body, html, p, ul, ol, li, dl, dd, dt, h1, h2, h3, h4, h5, h6, form, fieldset, td, th, caption, address, textarea, legend {margin: 0; padding: 0;}
+a img, fieldset {border: 0;}
+a {outline: none;}
+input, select, th, td {font-size: 12px;}
+body {font: 11px Tahoma, Helvetica, sans-serif; color: #000; background: #fff;}
+a {color: #184fa1;}
+
+.left {float: left;}
+.right {float: right;}
+.both {clear: both;}
+
+.header:after, .contacts:after, .footer ul:after, .footer_inner:after, .main:after, .cat_container:after, .info_container:after, .otzivi_block:after {content: ''; display: block; clear: both; visibility: hidden; height: 0; line-height: 0; font-size: 0;}
+.body {min-width: 1000px; max-width: 1400px; min-height: 100%; margin: 0 auto; position: relative; background: url(i/footer.jpg) no-repeat left bottom;}
+.main {clear: both; padding: 0 0 60px;}
+
+
+
+/* Header
+======================================= */
+.header {height: 114px;}
+.header_inner {margin: 0 190px 0 213px; font-size: 14px; color: #0473b8; padding: 35px 0 0;}
+.header_fix {float: left; width: 100%;}
+
+/* Logo */
+.logo {float: left; padding: 29px 14px 0 21px;}
+.logo a, .logo img {display: block; width: 178px; height: 79px;}
+
+/* Basket */
+.basket {float: right; padding: 16px 8px 0 62px; margin: 25px 0 0; background: url(i/basket.png) no-repeat left top; height: 43px; font-size: 11px; line-height: 13px; color: #086fa6;}
+.basket a {color: #555;}
+.basket a:hover {text-decoration: none;}
+
+/* Contacts */
+.header address {font-style: normal; float: right; padding: 19px 47px 0 0; width: 130px; text-align: right; font-size: 13px; line-height: 22px;}
+.header address span {display: block; padding: 3px 0 0;}
+.contacts {clear: both; background: #f9f9f9; padding: 2px 12px 3px; margin: 21px 0 0; position: relative;}
+.contacts img {position: absolute; display: block; width: 3px; height: 3px;}
+.contacts address a {padding: 0 0 0 23px; background: url(i/icq.gif) no-repeat left top; color: #0473b8;}
+.contacts address a:hover {text-decoration: none;}
+
+/* Menu */
+.menu {background: url(i/menu.png) repeat-x left bottom #6cadd0; position: relative; width: 100%; clear: both;}
+.menu table {border-collapse: collapse; width: 100%;}
+.menu table td {height: 52px;}
+.menu table a {color: #fff; text-decoration: none; white-space: nowrap; text-transform: uppercase; font-size: 11px; display: block; height: 52px; padding: 0 10px; line-height: 52px; border-right: 1px solid #fff; text-align: center;}
+.menu table a:hover {background: url(i/hover.png) repeat-x left bottom;}
+.menu table a.sel, .menu table a.sel:hover {background: url(i/sel.png) repeat-x left center;}
+.menu table form {background: url(i/6.jpg) no-repeat right top;}
+.search {background: url(i/8.jpg) no-repeat left top; padding: 19px 25px 0;}
+.search div {height: 33px;}
+.search input {outline: none; border: 0; width: 100%; font-size: 12px; color: #666; height: 15px;}
+
+
+
+
+/* Left Column
+======================================= */
+.left_col {width: 180px; padding: 6px 15px 230px 19px; float: left; background: url(i/evoo.jpg) no-repeat left bottom;}
+
+/* Brand List */
+.brand_list {width: 180px; background: url(i/brand-list.gif) no-repeat left bottom #fefefe; padding: 0 0 4px; margin: 2px 0 50px;}
+.brand_list h2 img {display: block;}
+.brand_list ul {list-style: none;}
+.brand_list li {display: block;}
+.brand_list a {display: block; padding: 1px 0 1px 30px; border-top: 1px solid #e8e8e8; font-size: 16px; color: #5e5e5e; text-transform: uppercase; text-decoration: none; font-family: Tahoma, Helvetica, sans-serif;}
+.brand_list a:hover {background: url(i/list-hover.png) no-repeat left center #fcfcfc;}
+.brand_list a.sel, .brand_list a.sel:hover {color: #fff; background: url(i/list-sel.png) no-repeat left center #91bf60;}
+
+/* Brands */
+.brands {width: 180px; background: url(i/brands.png) no-repeat left bottom; padding: 0 0 6px;}
+.brands ul {list-style: none; padding: 12px 0 0;}
+.brands ul li {border-bottom: 1px solid #d2d2d2;}
+.brands ul li a {border-bottom: 1px solid #f8f8f8; display: block; padding: 10px 0; text-align: center; position: relative;}
+.brands ul li.not_brands {border: 0;}
+.brands ul li.not_brands a {border: 0; padding: 8px 0 0;}
+.brands ul.evoo li, .brands ul.evoo li a {border: 0;}
+.brands ul.evoo li {background: url(i/evoo_line.png) no-repeat center top;}
+.brands ul.evoo :first-child {background: none;}
+.brands ul.evoo {padding: 4px 0 0;}
+.brands a {text-decoration: none;}
+
+/* News */
+.news {padding: 23px 0 0; clear: both; color: #000; background: url(i/news_line.png) no-repeat center top;}
+.news h3 {padding: 0 0 11px; text-align: center;}
+.news dl {padding: 0 0 13px; background: url(i/news_line.png) no-repeat center bottom;}
+.news dt {padding: 0 5px 0 14px; font-weight: bold;}
+.news dt a {color: #000; text-decoration: none;}
+.news dt a:hover {text-decoration: underline;}
+.news dd {padding: 0 5px 12px 14px; line-height: 14px;}
+
+
+
+/* Right Column
+======================================= */
+.right_col {margin: 0 20px 0 214px;}
+.right_col_inner {float: left; width: 100%; padding: 0 0 50px;}
+.all_in_one {position: relative;}
+
+.way {font-size: 12px; color: #6f6f6f; padding: 0 0 5px; margin: -7px 0 0; position: relative;}
+.way a {color: #6f6f6f; text-decoration: none; border-bottom: 1px dotted #1eb2ff;}
+.way a:hover {border: 0;}
+
+.important {border-bottom: 1px dotted #9bcb2f;}
+.important:hover {border-bottom: 1px dotted #0473b8;}
+
+.catalog {background: url(i/cat.png) repeat-x left top #f1f1f1; position: relative; margin: 0 0 3px; border: 1px solid #a5a5a5; border-top: 1px solid #f7f7f7; min-height: 250px;}
+.cat_corners {position: absolute; display: block;}
+.catalog h3 {font-size: 18px; line-height: 18px; color: #000; font-weight: normal; padding: 0 15px 5px 0;}
+.catalog h3 a {color: #000; text-decoration: none;}
+.catalog h3 a:hover {color: #0473b8;}
+
+.cat_container {clear: both; padding: 0 0 18px;}
+.cat_block {float: left; width: 33%;}
+.cat_img {float: left; display: block; margin: 0 15px 0 20px; width: 92px; text-align: center;}
+.cat_descr {margin: 0 0 0 125px;}
+.cat_descr p {font-size: 11px; color: #6e6e6e; padding: 0 15px 5px 0; min-height: 100px;}
+.price {color: #0876af; font-size: 17px;}
+.price span {font-size: 12px; color: #474747;}
+.bonus {padding: 2px 0 0; text-transform: uppercase; color: #c45252; font-size: 11px;}
+.bonus img {float: left; margin: 2px 4px 0 0;}
+.cat_line {border-top: 1px solid #fff; border-bottom: 1px solid #b4b4b4; position: relative; margin: -8px 0 9px; z-index: 10;}
+.about {font-size: 13px; color: #6e6e6e; padding: 0 12px; width: 180px; float: right; margin: -25px 0 0;}
+.cat_vertline {background: #b4b4b4; position: absolute; top: 0; bottom: 0; right: 200px; width: 1px;}
+.zakaz {float: right; margin: -3px 0 0;}
+
+.cat_list {width: 175px; background: url(i/list.jpg) no-repeat left bottom; position: absolute; right: 0; bottom: 0; top: 0;}
+.cat_list h4 {padding: 0 9px 9px;}
+.cat_list ul {width: 145px; padding: 0 0 0 15px; list-style: none; line-height: 14px;}
+.cat_list li {padding: 0 0 4px;}
+.cat_list li a {color: #464646; font-size: 11px; text-decoration: none;}
+.cat_list li a:hover {color: #0473b8;}
+
+.catalog h1 {font-size: 27px; color: #5e5e5e; font-weight: normal; font-family: 'Trebushet MS', Helvetica, sans-serif; padding: 8px 15px;}
+.description {clear: both; padding: 28px 0 10px;}
+.description h2 {color: #0473b8; font-size: 27px; font-weight: normal; font-family: 'Trebushet MS', Helvetica, sans-serif; padding: 0 0 4px;}
+.description p {font-size: 12px; color: #000; padding: 0 0 12px;}
+
+
+/* Product Cart */
+.phone_photos {float: left; padding: 10px 15px 0 20px;}
+.phone_photos table {width: 168px;}
+.phone_photos td {text-align: center; vertical-align: bottom;}
+.phone_photos td a {border-bottom: 3px solid #fefefe; display: block;}
+.phone_photos td a.sel {border-bottom: 3px solid #2d78f6;}
+
+.phone_descr {display: table; padding: 10px 0 0;}
+.phone_descr p {font-size: 12px; color: #000; padding: 0 35px 10px 0;}
+.phone_descr h4 {font-size: 14px; color: #333; font-weight: normal; font-family: Verdana, Helvetica, sans-serif; border-bottom: 1px solid #b5b5b5; padding: 0 0 2px;}
+.about_phone {margin: 0 65px 0 15px;}
+.about_phone table {border-collapse: collapse; width: 100%; margin: 6px 0 0;}
+.about_phone table td {font-size: 10px; color: #333; font-family: Verdana, Helvetica, sans-serif; border-bottom: 1px dotted #0876af; padding: 2px 0 0;}
+.about_phone table th {text-align: left; font-size: 11px; color: #333; padding: 0 0 2px;}
+.noborder {border: 0 !important;}
+
+.more {font-size: 13px; color: #0876af; float: right; border-bottom: 1px dotted #1eb2ff; text-decoration: none; margin: 4px 65px 0 0; font-family: Verdana, Helvetica, sans-serif;}
+.info_container {clear: both; padding: 40px 0 0 13px;}
+.rating {font-size: 14px; color: #333; font-family: Verdana, Helvetica, sans-serif;}
+.rating b {float: left; display: block; padding: 6px 7px 0 0; font-weight: normal;}
+.stars {display: block; float: left; width: 117px; height: 32px; position: relative; background: url(i/rating.png) no-repeat;}
+.stars span {display: block; width: 50%; height: 32px; position: absolute; left: 0; top: 0; background: url(i/rating-sel.png) no-repeat;}
+.buy {float: right; font-size: 18px; color: #474747; padding: 3px 20px 0 0;}
+.buy span {font-size: 26px; color: #0876af;}
+.buy div {float: left; padding: 0 15px 0 0;}
+.buy a {margin: 2px 0 0; display: block; float: left;}
+
+.otzivi_block {position: relative; z-index: 2;}
+.otzivi {padding: 8px 0 0 37px; color: #484848; font-size: 12px; margin: 0 450px 0 0;}
+.otzivi h5 {font-size: 15px; font-weight: normal; padding: 0 0 12px; text-transform: uppercase;}
+.otzivi dd {padding: 2px 0 6px;}
+.otzivi_block form {width: 406px; float: right; padding: 18px 0 0;}
+.otzivi_block form table {border-collapse: collapse; width: 100%;}
+.otzivi_block form textarea {width: 385px; height: 45px; border: 0; outline: none; color: #898989; display: block; clear: both; margin: 0 0 31px;}
+.otzivi_block form div {float: right; color: #898989; font-size: 10px;}
+.otzivi_block form div span {float: left; margin: 3px 0 0 5px; display: block;}
+.otzivi_block form div input {margin: 2px 0 0; float: left;}
+.gogo {float: right; margin: 0 8px 0 19px;}
+.otzivi_name {width: 166px; height: 16px; padding: 0; margin: 3px 19px 31px 44px; border: 0; color: #898989; outline: none; display: block; float: right;}
+.otzivi_mail {width: 166px; height: 16px; padding: 0; margin: 0; border: 0; color: #898989; outline: none; display: block; float: right;}
+
+.omg_goga {position: relative; float: left; margin: -1px 0 0 -1px; z-index: 3; list-style: none;}
+.omg_goga li, .omg_goga li a {float: left; display: block;}
+.omg_goga img {display: block;}
+
+.same {float: left; width: 33%; padding: 10px 0 0;}
+.same_photo {float: left; display: block; padding: 0 0 0 10px;}
+.same_block {margin: 0 10px 0 50px;}
+.same_block b {display: block;}
+.same_block a {font-size: 13px; color: #000;}
+
+
+.pay_inner { padding: 8px 0 80px; background: url(i/bg.jpg) no-repeat left 170px #fff; position: relative;}
+.pay {background: url(i/i-lt.jpg) no-repeat left top; padding: 2px; font: 11px Verdana, Tahoma, sans-serif;}
+.pay dl {padding: 10px 38px 5px 38px;}
+.pay dt {font: 13px Verdana, Tahoma, sans-serif; padding: 0 0 4px;}
+.pay dd {color: #595959; padding: 0 0 15px 18px;}
+.pay dd a {color: #0bc8d9;}
+.pay dd p {padding: 0 0 10px;}
+.pay h3 {background: url(i/title-bg.png) repeat-x left top; font-weight: normal;}
+.pay h3 span {background: url(i/title.jpg) no-repeat left top; height: 22px; display: block; color: #fff; font: 13px Verdana, Tahoma, sans-serif; padding: 4px 0 0 28px;}
+.pay h1 {padding: 0 0 8px 18px;}
+
+
+
+/* Basket
+======================================= */
+.steps {clear: both;}
+.block1-8:after, .block2-8:after, .bsk-email:after, .block2-11:after, .me-lost-pass div:after, .block4-5:after {content: ''; display: block; clear: both; visibility: hidden; height: 0; line-height: 0; font-size: 0;}
+
+.basket-way {padding: 0 0 15px;}
+.basket-way span {padding: 0 0 0 25px; background: url(i/basket/way.gif) no-repeat 5px 5px; font-size: 11px; line-height: 13px; color: #575757;}
+.basket-way span.sel {color: #bfbfbf;}
+.basket-way :first-child {padding: 0; background: none;}
+
+.block1-1 {border-bottom: 2px solid #d8f0f6; background: #fff; clear: both;}
+.block1-2 {background: url(i/basket/r1.gif) repeat-y right top;}
+.block1-3 {background: url(i/basket/t1.gif) repeat-x right top;}
+.block1-4 {background: url(i/basket/l1.gif) repeat-y left top;}
+.block1-5 {background: url(i/basket/rt1.gif) no-repeat right top;}
+.block1-6 {background: url(i/basket/lt1.gif) no-repeat left top; padding: 1px 1px 0 0;}
+.block1-7 {background: url(i/basket/bg11.jpg) repeat-y right top;}
+.block1-8 {background: url(i/basket/bg1.jpg) no-repeat right top; position: relative; padding: 0 0 40px;}
+
+.block1-8 h2, .block2-8 h2 {font-size: 28px; color: #595959; font-weight: normal; position: absolute; left: 17px; top: 12px;}
+
+.tovar {float: left; padding: 63px 0 0 48px; width: 320px;}
+.tovar-photo {float: left; margin: 0 20px 0 0;}
+.tovar h3 {font-size: 22px; font-weight: normal; color: #595959; padding: 0 0 10px;}
+.tovar h3 a {color: #595959; text-decoration: none;}
+.tovar span {font-size: 29px; color: #08a2d5;}
+
+.basket-variants {float: right; padding: 40px 90px 0 0; font-family: Tahoma, Helvetica, sans-serif;}
+.basket-variants div {font-size: 17px; line-height: 21px; color: #6b6b6b; padding: 0 0 15px;}
+.basket-variants div span {color: #4c4642;}
+.basket-variants ol {list-style: none; font-size: 15px;}
+.basket-variants ol li {padding: 0 0 12px;}
+.basket-variants ol li a {text-decoration: none;}
+
+.block1-9 {background: url(i/basket/lb1.gif) no-repeat left bottom; clear: both;}
+.block1-10 {background: url(i/basket/rb1.gif) no-repeat right bottom; padding: 0 0 5px;}
+.block1-11 {background: url(i/basket/l11.gif) repeat-y left bottom #fff;}
+.block1-12 {background: url(i/basket/r11.gif) repeat-y right bottom; position: relative; padding: 16px 0 0 17px;}
+
+.block1-12 h2 {padding: 0 0 23px; clear: both; font-size: 28px; color: #595959; font-weight: normal;}
+
+.acc-block {clear: both; padding: 0 0 0 23px;}
+.acc {width: 165px; vertical-align: text-top; display: inline-block; display:-moz-inline-box; -moz-box-orient:vertical; padding: 0 10px 35px 0;}
+.acc-inner {width: 165px; position: relative; display: table; table-layout: fixed;}
+.acc-inner div {margin: 0 0 0 83px;}
+.acc-img {float: left;}
+.acc-inner h4 {font-weight: normal; font-size: 12px; color: #595959; padding: 0 0 10px; line-height: 14px;}
+.acc-inner h4 a {color: #595959; text-decoration: none;}
+.acc-inner span {font-size: 18px; color: #08a2d5; display: block; padding: 0 0 12px;}
+
+
+
+
+.block2-7 {background: url(i/basket/bg22.jpg) repeat-y right top;}
+.block2-8 {background: url(i/basket/bg2.jpg) no-repeat right top;}
+.block2-9 {background: url(i/basket/b2.gif) repeat-x right bottom;}
+.block2-10 {background: url(i/basket/rb2.gif) no-repeat right bottom;}
+.block2-11 {background: url(i/basket/lb2.gif) no-repeat left bottom; padding: 0 0 40px; position: relative;}
+
+.zakaz-tbl {clear: both; padding: 50px 58px 0 40px;}
+.zakaz-tbl table {width: 100%; border-collapse: collapse;}
+.zakaz-tbl table td {vertical-align: top; font-size: 11px; color: #5b5b5b; padding: 14px 0 17px;}
+.bsk-price {display: block; white-space: nowrap; font-size: 15px; color: #08a2d5; padding: 0 40px 0 0;}
+.bsk-price-title {display: block; padding: 0 0 14px 9px;}
+.zakaz-tbl table th {vertical-align: top; padding: 0 0 17px; text-align: left; font-weight: normal;}
+.bsk-price-kolvo {display: block; padding: 0 0 14px;}
+.zakaz-tbl td input {width: 42px; border: 1px solid #e3e3e3; padding: 2px 0; margin: 0 35px 0 0; text-align: center;}
+.bsk-price-del {display: block; padding: 0 0 14px;}
+.bsk-delbutton {display: block; margin: 0 auto; width: 18px; height: 18px;}
+.bsk-delbutton img {display: block; width: 18px; height: 18px;}
+.bsk-price-img {float: left; margin: 0 18px 0 0;}
+.bsk-price-descr {margin: 0 20px 0 73px;}
+.bsk-price-descr h4 {font-size: 15px; font-weight: normal; padding: 0 0 14px;}
+.bsk-price-descr h4 a {color: #000; text-decoration: none;}
+.bsk-price-descr p {font-size: 10px; color: #8a8886;}
+
+.big-button {padding: 6px 0 0; clear: both;}
+.big-button a {background: url(i/basket/of-center.png) repeat-x right top; display: block; text-decoration: none;}
+.big-button a span {background: url(i/basket/of-left.png) no-repeat left top; display: block;}
+.big-button a span span {background: url(i/basket/of-right.png) no-repeat right top; height: 49px; padding: 13px 0 0; text-align: center; font-size: 16px; color: #727272; display: block;}
+.big-button a span b {font-size: 24px; color: #08a2d5; font-weight: normal;}
+
+.big-button a:hover {background: url(i/basket/of-center-sel.png) repeat-x right top; cursor: pointer;}
+.big-button a:hover span {background: url(i/basket/of-left-sel.png) no-repeat left top; cursor: pointer;}
+.big-button a:hover span span {background: url(i/basket/of-right-sel.png) no-repeat right top; cursor: pointer;}
+
+.bsk-email {padding: 50px 0 22px 50px; font-size: 15px; color: #cf807b; clear: both;}
+.bsk-email span {margin: 0 12px 0 0; float: left;}
+.bsk-email1 {float: left; width: 260px; margin: 0 10px 0 0; height: 18px; padding: 0;}
+.bsk-email2 {float: left; margin: 3px 0 0;}
+
+.me-new {float: left; padding: 0 30px 0 100px; font-size: 16px;}
+.me-new-yeah {padding: 0 0 12px;}
+.me-lost-pass div {padding: 4px 0 0 26px;}
+.me-lost-pass div span {margin: -1px 10px 0 0;}
+
+.lost-pass {float: left; font-size: 13px; padding: 35px 0 0;}
+.lost-pass span {display: block; padding: 0 0 2px;}
+.lost-pass span a {border-bottom: 1px dotted #fff; color: #000; text-decoration: none;}
+
+
+.block4-1 {background: url(i/basket/b4.gif) repeat-x right bottom;}
+.block4-2 {background: url(i/basket/r4.gif) repeat-y right top;}
+.block4-3 {background: url(i/basket/l4.gif) repeat-y left top;}
+.block4-4 {background: url(i/basket/rb4.gif) no-repeat right bottom;}
+.block4-5 {background: url(i/basket/lb4.gif) no-repeat left bottom; padding: 5px 17px 7px;}
+
+.bsk-list {font-size: 11px; color: #818181; list-style: none; padding: 60px 25px 0 45px; float: left;}
+.bsk-list li {padding: 0 0 7px;}
+.bsk-list b {font-size: 16px; color: #000; font-weight: normal; display: block;}
+.bsk-list input {float: left; margin-top: 5px;}
+.bsk-list span {display: block; margin: 0 0 0 28px;}
+
+.bsk-forminfo {font-size: 16px; padding: 45px 100px 0 10px;}
+.bsk-forminfo input {width: 245px; height: 16px; padding: 4px 2px; color: #ababab;}
+.bsk-forminfo textarea {width: 540px; height: 105px; color: #ababab;}
+.bsk-forminfo dd {padding: 3px 0 14px;}
+.bsk-checkbox {color: #000;}
+.bsk-checkbox input {margin-top: 0;}
+.bsk-forminfo-dop h3 {font-size: 27px; color: #787878; font-weight: normal; }
+.bsk-forminfo-dop {padding: 0 0 0 50px;}
+.bsk-forminfo-dop dl {padding: 10px 0 0 25px;}
+
+.hah {width: 532px; height: 92px; position: absolute; right: 0; bottom: 0; background: url(i/hah.jpg) no-repeat; z-index: 0;}
+.vudi-voodpeker {padding: 50px 140px 20px 20px;}
+.vudi-voodpeker table {width: 100%; border-collapse: collapse;}
+.vudi-voodpeker table td {text-align: center; vertical-align: middle; border-bottom: 1px solid #e1e1e1; padding: 6px 5px 8px;}
+.vudi-voodpeker table th {text-align: center; font-weight: normal; font-size: 11px; color: #5b5b5b; }
+.vudi-title {width: 40%; text-align: left !important;}
+.vudi-title a {font-size: 15px; color: #000; text-decoration: none;}
+.vudi-voodpeker table input {width: 42px; border: 1px solid #e3e3e3; font-size: 15px; text-align: center;}
+
+
+
+
+
+
+
+
+
+/* Footer
+======================================= */
+.footer {border-top: 1px solid #fff; margin: -52px auto 0; position: relative; min-width: 1000px; max-width: 1400px; clear: both;}
+.footer_inner {border-top: 1px solid #b4b4b4; height: 50px; font-size: 13px;}
+.footer address {font-style: normal; width: 116px; padding: 7px 51px 0 48px; float: left;}
+.footer address a, .footer li a {color: #0976b0; text-decoration: none;}
+.footer address a:hover, .footer li a:hover {text-decoration: underline;}
+.footer ul {padding: 15px 0 0; list-style: none;}
+.footer li {float: left; margin: 0 60px 0 0;}
+.counter {float: right; padding: 9px 115px 0 0;}

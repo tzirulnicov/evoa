@@ -1,0 +1,170 @@
+/* Main
+======================================= */
+html, body {height: 100%; width: 100%;}
+* {margin: 0; padding: 0;}
+a img, fieldset {border: 0;}
+body {font: 12px Verdana, Helvetica, sans-serif; color: #656565; background: url(i/body.gif) center center #f8f6eb;}
+a {color: #000;}
+a:hover {color: #f00;}
+td {vertical-align: top;}
+.left {float: left;}
+.right {float: right;}
+.both {clear: both;}
+table {border-collapse: collapse;}
+
+.body {margin: 0 auto; position: relative; min-height: 100%; min-width: 996px; max-width: 1300px;}
+.cat-inner:after, .catalog:after, .same-block:after, .inner-container:after {content: ''; display: block; clear: both; visibility: hidden; height: 0; line-height: 0; font-size: 0;}
+.preloader {position: absolute; left: -1000px; top: -2000px;}
+
+
+
+/* Header
+======================================= */
+.header {padding: 23px 0 0; position: relative; margin: 0 29px; height: 135px; z-index: 2;}
+.header-bg {position: absolute; width: 100%; z-index: 2;}
+.header-bg table {width: 100%;}
+.header-left div {width: 40px; height: 142px; background: url(i/header-left.png) no-repeat;}
+.header-right div {width: 27px; height: 142px; background: url(i/header-right.png) no-repeat;}
+.header-center {width: 100%; background: url(i/header.png) repeat-x; vertical-align: top;}
+.header-center div {height: 135px; background: url(i/header-inner.jpg) no-repeat right top;}
+.header-inner {position: relative; z-index: 5; height: 135px;}
+.logo {position: absolute; z-index: 10; left: 44px; top: 24px;}
+.description {position: absolute; z-index: 10; left: 290px; top: 62px; color: #c9c8c9;}
+.basket {position: absolute; right: 300px; top: 5px; padding: 12px 0 34px 59px; background: url(i/basket.png) no-repeat; white-space: nowrap; color: #747474;}
+.menu {width: 100%; position: absolute; bottom: 0;}
+.menu table {width: 100%; border: collapse;}
+.menu-left div {width: 55px; height: 43px; background: url(i/menu-left.png) no-repeat;}
+.menu-right div {width: 55px; height: 43px; background: url(i/menu-right.png) no-repeat;}
+.menu-items {background: url(i/menu.png); padding: 15px 0 0;}
+.menu-items div {border-left: 1px solid #fff;}
+.menu-items div a {text-decoration: none; display: block; min-height: 22px; text-transform: uppercase; padding: 6px 8px 0;}
+.menu-sel div {background: url(i/menu-sel.png) repeat-x left bottom;}
+
+
+
+
+/* Tags
+======================================= */
+.tags {position: relative; margin: -17px 35px 0; z-index: 1;}
+.tags table td {vertical-align: bottom;}
+.tags-left div {width: 20px; height: 51px; background: url(i/tags-left.png) no-repeat;}
+.tags-right div {width: 20px; height: 51px; background: url(i/tags-right.png) no-repeat;}
+.tags table td.tags-inner {width: 100%; background: url(i/tags.png) repeat-x left bottom; vertical-align: top;}
+.tags ul {list-style: none; text-align: center; padding: 22px 0 0;}
+.tags ul li {display: inline; padding: 0 10px;}
+.tags ul a {text-decoration: none; color: #0076bd; border-bottom: 1px dashed #0076bd; white-space: nowrap; line-height: 18px;}
+.tags ul a:hover {color: #f00; border-bottom: 1px dashed #f00;}
+.big {font-size: 16px;}
+.small {font-size: 9px;}
+
+
+/* Catalog
+======================================= */
+.catalog {clear: both; padding: 6px 35px 60px;}
+
+.cat {float: left; width: 33.3%;}
+.cat-container {margin: 0 2px 4px;}
+.cat-lt, .cat-rt, .cat-lt div, .cat-rt div, .cat-lb, .cat-rb, .cat-lb div, .cat-rb div {width: 19px; height: 19px;}
+.cat-t, .cat-b {width: 100%;}
+.cat-lt div {background: url(i/lt.png) no-repeat;}
+.cat-rt div {background: url(i/rt.png) no-repeat;}
+.cat-lb div {background: url(i/lb.png) no-repeat;}
+.cat-rb div {background: url(i/rb.png) no-repeat;}
+.cat-t div {height: 18px; border-top: 1px solid #d3d3d3; background: #fff;}
+.cat-b div {height: 18px; border-bottom: 1px solid #d3d3d3; background: #fff;}
+
+.cat-inner {border-left: 1px solid #d3d3d3; border-right: 1px solid #d3d3d3; background: #fff; padding: 0 18px; position: relative; min-height: 200px;}
+.cat-preview {float: left; margin: 0 20px 0 0;}
+.cat-info {overflow: auto; padding: 0 0 45px;}
+.cat-inner h3 {color: #247000; font-size: 16px; line-height: 16px; font-weight: normal; padding: 0 0 8px;}
+.cat-inner h3 a {color: #247000; text-decoration: none;}
+.cat-inner h3 a:hover {color: #f00;}
+.cal-lat {font-size: 10px; line-height: 12px; padding: 0 0 4px;}
+.cal-lat span {color: #994800;}
+.cat-inner table td {font-size: 10px; color: #994800; line-height: 12px; padding: 0 0 4px;}
+.cat-inner table th {font-size: 10px; font-weight: normal; text-align: left; padding: 0 10px 4px 0; line-height: 12px;}
+.cat-price {font: 16px Tahoma, Arial, sans-serif; color: #9a9a9a; position: absolute; bottom: 22px;}
+.cat-price span {color: #da2128;}
+.cat-bonus {font: 14px Tahoma, Arial, sans-serif; color: #da2128; padding: 0 0 0 51px; background: url(i/bonus.png) no-repeat 1px 4px; position: absolute; bottom: 2px;}
+
+.select .cat-lt div {background: url(i/lt-sel.png) no-repeat;}
+.select .cat-rt div {background: url(i/rt-sel.png) no-repeat;}
+.select .cat-lb div {background: url(i/lb-sel.png) no-repeat;}
+.select .cat-rb div {background: url(i/rb-sel.png) no-repeat;}
+.select .cat-t div {border-top: 1px solid #e49325;}
+.select .cat-b div {border-bottom: 1px solid #e49325;}
+.select .cat-inner {border-left: 1px solid #e49325; border-right: 1px solid #e49325;}
+
+
+/* One description
+======================================= */
+.inner-left {float: left; width: 70%;}
+.inner, .more {padding: 0 5px 5px 0;}
+.inner-container {border-left: 1px solid #d3d3d3; border-right: 1px solid #d3d3d3; background: #fff; padding: 0 26px; position: relative;}
+.inner-container h1 {font-size: 27px; line-height: 29px; padding: 0 0 7px; color: #247000; font-weight: normal;}
+.inner-container .cal-lat, .inner-container td, .inner-container th {font-size: 14px; line-height: 16px;}
+.inner-container td {color: #994800; padding: 0 0 4px; text-align: right; background: url(i/separator.gif) repeat-x left bottom;}
+.inner-container table th {font-weight: normal; text-align: left; padding: 0 10px 4px 0; background: url(i/separator.gif) repeat-x right bottom;}
+.inner-container table span {background: #fff;}
+.inner-container .cat-price {font: 18px Tahoma, Arial, sans-serif; position: static; padding: 15px 0 0 10px;}
+.inner-container .cat-price span {font-size: 24px;}
+.inner-container .cat-bonus {font: 18px Tahoma, Arial, sans-serif; padding: 0 0 15px 75px; background: url(i/bonus.gif) no-repeat 11px 5px; position: static;}
+.inner-container ul {float: left; list-style: none; width: 25%; text-align: center;}
+.inner-container ul li {padding: 0 0 5px;}
+.inner-container ul a, .inner-container .cat-descr a {outline: none;}
+.inner-container .cat-descr {overflow: auto;}
+
+
+
+
+
+
+/* More
+======================================= */
+.more h4 {font-size: 20px; color: #505050; font-weight: normal; padding: 0 0 6px;}
+.more p {color: #505050;}
+.more-inner {border-left: 1px solid #d3d3d3; border-right: 1px solid #d3d3d3; background: #fff; padding: 4px 26px 14px; position: relative;}
+
+
+/* Same
+======================================= */
+.inner-right {float: right; width: 30%;}
+.same, .other {padding: 0 0 5px;}
+.same h2 {font-size: 20px; color: #636363; text-align: center; font-weight: normal; padding: 0 0 5px;}
+.same-block {position: relative; padding: 10px 14px;}
+.same-block h3 {font-size: 14px; padding: 0 0 6px;}
+.same-block .cal-lat, .same-block td, .same-block th {font-size: 9px !important; line-height: 11px !important;}
+.same-block .cat-price {font-size: 14px; bottom: 32px;}
+.same-block .cat-bonus {font-size: 12px; padding: 0 0 0 45px; background: url(i/bon.png) no-repeat 1px 4px; bottom: 12px;}
+.same-inner {padding: 0;}
+
+
+/* Other
+======================================= */
+.other h4 {font-size: 9px; color: #287613; font-weight: normal; padding: 0 0 4px;}
+.other li {font-size: 9px; list-style: none; color: #656565; padding: 0 0 3px;}
+.other li a {color: #656565; text-decoration: none;}
+.other li a:hover {color: #f00;}
+.other-inner {border-left: 1px solid #d3d3d3; border-right: 1px solid #d3d3d3; background: #fff; padding: 0 14px; position: relative;}
+
+
+/* Footer
+======================================= */
+.footer {clear: both; position: relative; height: 41px; padding: 0 35px; margin: -41px auto 0; min-width: 926px; max-width: 1230px; color: #010000; font-size: 11px;}
+.footer address {font-style: normal;}
+.footer table {width: 100%;}
+.footer-left, .footer-right {width: 20px; height: 41px;}
+.footer-left div {width: 20px; height: 41px; background: url(i/footer-left.png) no-repeat;}
+.footer-right div {width: 20px; height: 41px; background: url(i/footer-right.png) no-repeat;}
+.footer-inner {width: 100%; height: 41px; background: url(i/footer.png) repeat-x; position: relative;}
+.copy {position: absolute; left: 0; top: 8px;}
+.copy .evoo {float: left; margin: 0 4px 0 0; padding: 0; background: url(i/evoo.png) no-repeat; width: 91px; height: 31px;}
+.copy span {display: block; padding: 7px 0 0; float: left;}
+.goga {float: right; padding: 14px 15px 0 0;}
+.goga a {text-decoration: none; color: #000;}
+.footer a:hover {color: #f00;}
+.counter {float: right; padding: 6px 55px 0 10px;}
+.footer ul {margin: 0 400px 0 300px; padding: 14px 0 0;}
+.footer ul {position: absolute; z-index: 20; text-align: center; top: 0; left: 15%; white-space: nowrap;}
+.footer ul li {display: inline; margin: 0 15px 0 0;}
+.footer ul a {text-decoration: none;}

@@ -1,0 +1,43 @@
+#php_value display_errors 1
+
+DirectoryIndex index.html index.htm index.shtml index.php index.xml
+
+RewriteEngine  On
+RewriteBase    /
+
+#RewriteCond %{REMOTE_ADDR}                                      !81.200.84.100
+#RewriteCond %{REQUEST_URI}                                      !\/admin^M
+##RewriteCond %{REMOTE_ADDR}                                      92.241.180.108
+#RewriteCond %{REQUEST_FILENAME}                                         !-f
+#RewriteRule (.*) cmsb.php?$1
+
+#RewriteCond %{REQUEST_URI} ^\/(radiomodel|nokia|lg|fly|samsung|moto|sony|philips|kommunikatori|aksessuari|bluetooth|flowers\/bukety|flowers\/roses)
+#RewriteCond %{REQUEST_URI} \.html$
+#RewriteCond %{REQUEST_URI} !\.(png|jpg|jpeg|gif)$
+#RewriteCond %{REQUEST_URI} !\?tag\=Tag
+#RewriteCond %{REQUEST_FILENAME}                                         !-f
+#RewriteCond %{REQUEST_URI} !cache_init
+#RewriteCond %{REMOTE_ADDR} !81.200.80.9
+#RewriteRule (.*) /cgi-bin/cms_cache.pl/$1
+
+RewriteCond %{REQUEST_URI}							^/$ [OR]
+RewriteCond %{REQUEST_FILENAME}						!-d
+RewriteCond %{REQUEST_URI}							\.ehtml$ [OR]
+RewriteCond %{REQUEST_FILENAME}						!-f
+RewriteCond %{REQUEST_FILENAME}						!-l
+#RewriteCond %{REQUEST_URI} !/radiomodel
+RewriteRule (.*) /cgi-bin/cmsb.pl/$1
+
+RewriteCond %{REQUEST_URI}							/$
+RewriteCond %{REQUEST_FILENAME}						-d
+RewriteCond "%{REQUEST_FILENAME}/.cmsb-catch-path"	-f
+#RewriteCond %{REQUEST_URI} !/radiomodel
+RewriteRule (.*) /cgi-bin/cmsb.pl/$1
+
+#RewriteCond %{REMOTE_ADDR}                                      !81.200.84.100
+#RewriteCond %{REQUEST_URI} \.html$
+#RewriteCond %{REQUEST_FILENAME}                                         !-f
+#RewriteRule (.*) /cgi-bin/cms_cache.pl/$1
+
+RewriteOptions MaxRedirects=100
+#LimitInternalRecursion=100

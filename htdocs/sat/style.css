@@ -1,0 +1,437 @@
+/* Main
+======================================= */
+html, body {height: 100%; width: 100%;}
+body, html, p, ul, ol, li, dl, dd, dt, h1, h2, h3, h4, h5, h6, form, fieldset, td, th, caption, address, textarea, legend {margin: 0; padding: 0;}
+a img, fieldset {border: 0;}
+a {outline: none;}
+input, select, th, td {font-size: 12px;}
+body {font: 11px Verdana, Helvetica, sans-serif; color: #000;}
+a {color: #000;}
+address {font-style: normal;}
+
+
+.left {float: left;}
+.right {float: right;}
+.both {clear: both;}
+
+.footer_inner:after, .phone:after, .container:after, .review_block:after, .content:after, .tags:after, .catalog:after {content: ''; display: block; clear: both; visibility: hidden; height: 0; line-height: 0; font-size: 0;}
+.body {min-width: 1000px; min-height: 100%; margin: 0 auto; position: relative;}
+.bg {position: absolute; left: 25px; right: 25px; top: 113px; bottom: 74px; background: #fff; z-index: 5;}
+.content {clear: both; margin: 0 25px; padding: 0 0 122px; min-height: 720px; position: relative; z-index: 10;}
+.content_inner {background: #fff;}
+
+/* Common
+======================================= */
+.logo {position: absolute; font-size: 16px;}
+.evoo {position: absolute; top: 0; right: 0; width: 133px; height: 133px; background: url(i/evoo.png) no-repeat;}
+.basket a {font-size: 14px; display: block; padding: 0 0 2px; color: #fff;}
+.phone a {padding: 1px 0 1px 22px; background: url(i/icq.gif) no-repeat left top; color: #fff;}
+.top_shadow {margin: 0 25px 0; height: 8px;}
+.top_shadow table, .bot_shadow table {border-collapse: collapse; width: 100%;}
+.tl_shadow {width: 122px; height: 8px; background: url(i/top-left.png) no-repeat;}
+.tr_shadow {width: 104px; height: 8px; background: url(i/top-right.png) no-repeat;}
+.tc_shadow {height: 8px; background: url(i/top.png) repeat-x; width: 100%;}
+.bot_shadow {margin: 0 25px;}
+.bl_shadow {height: 12px; width: 97px; background: url(i/shadow-left.png) no-repeat;}
+.br_shadow {height: 12px; width: 86px; background: url(i/shadow-right.png) no-repeat;}
+.bc_shadow {height: 12px; width: 100%; background: url(i/shadow.png) repeat-x;}
+
+
+
+
+
+
+/* Samsung
+======================================= */
+#samsung {background: url(i/samsung/body.png) repeat-x left top #ffc000;}
+#samsung .body {background: url(i/samsung/footer.png) repeat-x left bottom;}
+#samsung .logo {left: 28px; top: 46px;}
+#samsung .logo img {width: 109px; height: 29px;}
+#samsung .basket {position: absolute; right: 105px; top: 40px; font: 11px Verdana, Helvetica, sans-serif; color: #fff;}
+#samsung .basket a {text-decoration: none;}
+
+#samsung .header {margin: 0 190px 0 180px; padding: 18px 0 0; clear: both;}
+#samsung .phone {clear: both; font-size: 14px; color: #fff; font-family: Arial, Helvetica, sans-serif; padding: 0 20px 5px 15px;}
+
+#samsung .top_shadow {padding: 26px 0 0;}
+
+
+#samsung .menu_outer {clear: both; background: url(i/samsung/menu-bg.png) repeat-x left bottom;}
+#samsung .menu {height: 40px; background: url(i/samsung/menu-left.png) no-repeat left bottom;}
+#samsung .menu_inner {height: 40px; background: url(i/samsung/menu-right.png) no-repeat right bottom;}
+#samsung .menu_margin {margin: 0 12px 0 15px;}
+#samsung .menu table {border-collapse: collapse; width: 100%; text-align: center;}
+#samsung .menu table span {display: block; padding: 2px 0 11px;}
+#samsung .menu table a {display: block; font-size: 12px; text-transform: uppercase; text-decoration: none; height: 21px; padding: 6px 0 0; border-right: 1px solid #fff; border-left: 1px solid #cbcbcb;}
+#samsung .menu table td {background: url(i/samsung/menu3.png) repeat-x;}
+#samsung .menu table a:hover {text-decoration: underline;}
+
+#samsung .footer_top {background: url(i/samsung/f-c.png) repeat-x;}
+
+
+/* Nokia
+======================================= */
+#nokia {background: url(i/nokia/body.png) repeat-x left top #fff;}
+#nokia .body {background: url(i/nokia/footer.png) repeat-x left bottom;}
+#nokia .logo {left: 29px; top: 40px;}
+#nokia .logo img {width: 131px; height: 40px;}
+#nokia .basket {position: absolute; right: 127px; top: 40px; font: 11px Verdana, Helvetica, sans-serif; color: #fff;}
+#nokia .basket a {text-decoration: none; border-bottom: 1px dotted #fff;}
+
+#nokia .header {margin: 0 212px 0 229px; padding: 18px 0 0; clear: both;}
+#nokia .phone {clear: both; font-size: 14px; color: #fff; font-family: Arial, Helvetica, sans-serif; padding: 0 34px 5px 35px;}
+
+#nokia .top_shadow {padding: 6px 0 0;}
+
+#nokia .menu_outer {clear: both; background: url(i/nokia/menu-bg.png) repeat-x left -1px;}
+#nokia .menu {height: 60px; background: url(i/nokia/menu-left.png) no-repeat left bottom;}
+#nokia .menu_inner {height: 60px; background: url(i/nokia/menu-right.png) no-repeat right bottom;}
+#nokia .menu_margin {margin: 0 35px 0 45px;}
+#nokia .menu table {border-collapse: collapse; width: 100%; text-align: center;}
+#nokia .menu table span {display: block; padding: 0 0 11px 1px; background: url(i/nokia/separator.png) no-repeat;}
+#nokia .menu table a {display: block; color: #fff; font-size: 12px; text-transform: uppercase; text-decoration: none; height: 25px; padding: 9px 0 0;}
+#nokia .menu table .sel a, #nokia .menu table a:hover {background: url(i/nokia/menu-sel.png) repeat-x;}
+
+#nokia .footer_top {background: url(i/nokia/f-c.png) repeat-x;}
+
+
+/* Sony
+======================================= */
+#sony {background: url(i/sony/body.png) repeat-x left top #fff;}
+#sony .body {background: url(i/sony/footer.png) repeat-x left bottom;}
+#sony .logo {left: 29px; top: 19px;}
+#sony .logo img {width: 207px; height: 34px;}
+#sony .basket {position: absolute; right: 225px; top: 55px; font: 11px Verdana, Helvetica, sans-serif; color: #fff;}
+#sony .basket a {text-decoration: none; border-bottom: 1px dotted #fff;}
+
+#sony .header {margin: 0 25px; padding: 20px 0 0; clear: both;}
+#sony .phone {clear: both; font-size: 14px; color: #fff; font-family: Arial, Helvetica, sans-serif; height: 29px; background: url(i/sony/c.png) repeat-x}
+#sony .phone .left {background: url(i/sony/l.png) no-repeat left top; height: 23px; padding: 6px 0 0 15px;}
+#sony .phone .right {background: url(i/sony/r.png) no-repeat right top; height: 23px; padding: 6px 15px 0 0;}
+
+#sony .top_shadow {padding: 2px 0 0;}
+
+#sony .menu_outer {clear: both; padding: 21px 0 0; height: 28px;}
+#sony .menu table {border-collapse: collapse; width: 55%; text-align: center;}
+#sony .menu table span {display: block;}
+#sony .menu table a {display: block; color: #fff; font-size: 12px; text-transform: uppercase; height: 21px; padding: 7px 0 0; background: url(i/sony/separator.png) no-repeat;}
+#sony .menu table span:hover {background: url(i/sony/menu-sel.png) repeat-x;}
+#sony .menu table .sel span {background: url(i/sony/menu-sel.png) repeat-x;}
+
+#sony .footer_top {background: url(i/sony/f-c.png) repeat-x;}
+#sony .fix-ie { padding: 0 185px 5px 240px;}
+
+
+
+/* Moto
+======================================= */
+#moto {background: url(i/moto/body.png) repeat-x left top #103052;}
+#moto .body {background: url(i/moto/footer.jpg) no-repeat center top;}
+#moto .logo {left: 50%; top: 16px; margin: 0 0 0 -101px;}
+#moto .logo img {width: 202px; height: 38px;}
+#moto .basket {position: absolute; right: 175px; top: 17px; font: 11px Verdana, Helvetica, sans-serif; color: #fff;}
+#moto .basket a {text-decoration: none; border-bottom: 1px dotted #fff;}
+
+#moto .header {margin: 0 25px; position: relative; z-index: 30;}
+#moto .phone {font-size: 14px; color: #fff; font-family: Arial, Helvetica, sans-serif;}
+#moto .phone .left {font-size: 22px; position: absolute; left: 17px; top: 28px; float: none;}
+#moto .phone .right {position: absolute; top: 79px; left: 8px; float: none;}
+
+#moto .top_shadow {z-index: 40; position: relative; top: -8px;}
+
+#moto .menu_outer {clear: both; padding: 77px 0 0; height: 36px; margin: 0 120px 0 153px;}
+#moto .menu {height: 36px; background: url(i/moto/menu-bg.png) repeat-x;}
+#moto .menu_inner {height: 36px; background: url(i/moto/menu-left.png) no-repeat left bottom;}
+#moto .menu_margin {height: 36px; background: url(i/moto/menu-right.png) no-repeat right bottom; padding: 0 93px 0 94px;}
+#moto .menu table {border-collapse: collapse; width: 100%; text-align: center;}
+#moto .menu table span {display: block;}
+#moto .menu table a {display: block; color: #000; font-size: 12px; text-transform: uppercase; text-decoration: none; height: 28px; padding: 8px 0 0; background: url(i/moto/separator.png) no-repeat;}
+#moto .menu table span:hover {background: url(i/moto/menu-sel.png) repeat-x;}
+#moto .menu table .sel span {background: url(i/moto/menu-sel.png) repeat-x;}
+
+#moto .footer_top {background: url(i/moto/f-c.png) repeat-x;}
+#moto .content {position: relative; top: -8px;}
+
+
+
+
+/* Content
+======================================= */
+.main_block {float: left; width: 66%;}
+.content h1 {font-size: 20px; font-weight: normal; padding: 14px 25px 10px;}
+.container {padding: 0 0 8px 25px;}
+.review_block .cat_img {float: left; margin: 0 10px 0 0;}
+.cat_descr {margin: 0 25px 0 100px;}
+.cat_descr h3 {font-size: 14px; font-weight: normal; padding: 3px 0 5px;}
+.cat_descr h3 a {color: #000; text-decoration: none;}
+.cat_descr p {font-size: 11px; color: #8b8b8b; display: block; padding: 0 0 8px; min-height: 100px;}
+.cat_descr span {font-size: 18px;}
+
+.sec_block {float: right; width: 32%;}
+.review {padding: 0 25px 0 0;}
+.review h4 {font-size: 18px; font-weight: normal; padding: 22px 0 5px;}
+.review_block {padding: 0 0 8px;}
+.review_inner {margin: 0 0 0 80px;}
+.review_inner h3 {font-size: 12px; font-weight: normal; padding: 0 0 3px;}
+.review_inner h3 a {color: #000; text-decoration: none;}
+.review_inner p {font-size: 9px; color: #8b8b8b; padding: 0 0 8px;}
+.raiting {position: relative; height: 17px; width: 76px; background: url(i/rating.png) repeat-x #a9a9a9;}
+.raiting div {position: absolute; left: 0; top: 0; height: 17px; background: url(i/rating-sel.png) repeat-x #ff6b5f;}
+
+.news {padding: 18px 25px 10px 0;}
+.news h4 {font-size: 18px; font-weight: normal; padding: 0 0 6px;}
+.news ul {font-size: 9px; list-style: none; padding: 0 0 2px;}
+.news li {padding: 0 0 12px;}
+.news li a {text-decoration: none;}
+.archive {font-size: 9px; text-decoration: none;}
+
+/* ======================================= */
+
+.tags {background: url(i/tags.png) repeat-x left top #ebebeb; font-size: 14px; padding: 4px 18px; list-style: none; border-bottom: 1px solid #cbcbcb; clear: both; margin: 0 0 5px;}
+.tags li {float: left; margin: 0 5px 2px 0;}
+.tags li a {text-decoration: none; color: #000; display: block;}
+.tags li span {display: block; padding: 3px 4px 10px 0; white-space: nowrap; margin: 0 15px 0 14px;}
+
+.way {padding: 2px 0 12px 10px; font-size: 10px;}
+.way a {text-decoration: none;}
+
+/* ======================================= */
+
+
+
+
+
+.catalog {background: url(i/cat.png) repeat-x left top #f1f1f1; position: relative; margin: 0 0 3px; padding-bottom: 30px; border: 1px solid #a5a5a5; border-top: 1px solid #f7f7f7; min-height: 250px;}
+.cat_corners {position: absolute; display: block;}
+.catalog h3 {
+	color:#0876AF;
+	font-size:14px;
+	font-weight:lighter;
+	padding-bottom:0;
+	padding-top:10px;
+	
+	}
+/* .catalog h3 {font-size: 16px; line-height: 18px; color: #000; font-weight: normal; padding: 0 15px 5px 0;}*/
+.catalog h3 a {color: #000; text-decoration: none;}
+.catalog h3 a:hover {color: #0473b8;}
+
+.cat_container {clear: both; padding: 0 0 18px;}
+.cat_block {float: left; width: 33%;}
+.container .cat_img {float: left; display: block; margin: 0 15px 0 20px; width: 102px; text-align: center;}
+.cat_descr {margin: 0 0 0 135px;}
+.cat_descr p {font-size: 11px; color: #6e6e6e; padding: 0 15px 5px 0; min-height: 100px;}
+.price {color: #0876af; font-size: 17px;}
+.price span {font-size: 12px; color: #474747;}
+.bonus {padding: 2px 0 0; text-transform: uppercase; color: #c45252; font-size: 11px;}
+.bonus img {float: left; margin: 2px 4px 0 0;}
+.cat_line {border-top: 1px solid #fff; border-bottom: 1px solid #b4b4b4; position; relative; margin: -8px 0 9px;}
+.about {font-size: 13px; color: #6e6e6e; padding: 0 12px; width: 180px; float: right; margin: -25px 0 0;}
+.cat_vertline {background: #b4b4b4; position: absolute; top: 0; bottom: 0; right: 200px; width: 1px;}
+.zakaz {float: right; margin: -3px 0 0;}
+
+.cat_list {width: 168px; background: url(i/list.png) no-repeat left bottom; position: absolute; right: 0; bottom: 0; top: 0;}
+.cat_list h4 {padding: 0 9px 9px;}
+.cat_list ul {width: 145px; padding: 0 0 0 15px; list-style: none; line-height: 14px;}
+.cat_list li {padding: 0 0 4px;}
+.cat_list li a {color: #464646; font-size: 11px; text-decoration: none;}
+.cat_list li a:hover {color: #0473b8;}
+
+.catalog h2 {font-size: 27px; color: #5e5e5e; font-weight: normal; font-family: 'Trebushet MS', Helvetica, sans-serif; padding: 8px 25px;}
+.description {clear: both; padding: 28px 0 10px;}
+.description h2 {color: #0473b8; font-size: 27px; font-weight: normal; font-family: 'Trebushet MS', Helvetica, sans-serif; padding: 0 0 4px;}
+.description p {font-size: 12px; color: #000; padding: 0 0 12px;}
+
+
+/* Product Cart */
+.phone_photos {float: left; padding: 10px 15px 0 20px;}
+.phone_photos table {width: 168px;}
+.phone_photos td {text-align: center; vertical-align: bottom;}
+.phone_photos td a {border-bottom: 3px solid #fefefe; display: block;}
+.phone_photos td a.sel {border-bottom: 3px solid #2d78f6;}
+
+.phone_descr {display: table; padding: 10px 0 0;}
+.phone_descr p {font-size: 12px; color: #000; padding: 0 35px 10px 0;}
+.phone_descr h4 {font-size: 14px; color: #333; font-weight: normal; font-family: Verdana, Helvetica, sans-serif; border-bottom: 1px solid #b5b5b5; padding: 0 0 2px;}
+.about_phone {margin: 0 0 0 15px;}
+.about_phone table {border-collapse: collapse; width: 100%; margin: 6px 0 0;}
+.about_phone table td {font-size: 10px; color: #333; font-family: Verdana, Helvetica, sans-serif; border-bottom: 1px dotted #0876af; padding: 2px 0 0;}
+.about_phone table th {text-align: left; font-size: 11px; color: #333; padding: 0 0 2px;}
+.noborder {border: 0 !important;}
+
+.more {font-size: 13px; float: right; text-decoration: none; margin: 4px 12px 0 0; font-family: Verdana, Helvetica, sans-serif;}
+.info_container {clear: both; padding: 40px 0 0 13px;}
+.ratingold {font-size: 14px; color: #333; font-family: Verdana, Helvetica, sans-serif;}
+.ratingold b {float: left; display: block; padding: 6px 7px 0 0; font-weight: normal;}
+.stars {display: block; float: left; width: 117px; height: 32px; position: relative; background: url(i/nokia/rating.png) no-repeat;}
+.stars span {display: block; width: 50%; height: 32px; position: absolute; left: 0; top: 0; background: url(i/nokia/rating-sel.png) no-repeat;}
+.buy {float: right; font-size: 18px; color: #474747; padding: 3px 20px 0 0;}
+.buy span {font-size: 26px;}
+.buy div {float: left; padding: 0 15px 0 0;}
+.buy a {margin: 2px 0 0; display: block; float: left;}
+
+.otzivi_block {position: relative; z-index: 2;}
+.otzivi {padding: 8px 0 0 37px; color: #484848; font-size: 12px; margin: 0 450px 0 0;}
+.otzivi h5 {font-size: 15px; font-weight: normal; padding: 0 0 12px; text-transform: uppercase;}
+.otzivi dd {padding: 2px 0 6px;}
+.otzivi dt a {text-decoration: none;}
+.otzivi_block form {width: 406px; float: right; padding: 18px 0 0;}
+.otzivi_block form table {border-collapse: collapse; width: 100%;}
+.otzivi_block form textarea {width: 385px; height: 45px; border: 0; outline: none; color: #898989; display: block; clear: both; margin: 0 0 31px;}
+.otzivi_block form div {float: right; color: #898989; font-size: 10px;}
+.otzivi_block form div span {float: left; margin: 3px 0 0 5px; display: block; font-size: 9px;}
+.otzivi_block form div input {margin: 2px 0 0; float: left;}
+.gogo {float: right; margin: 0 8px 0 19px;}
+.otzivi_name {width: 166px; height: 16px; padding: 0; margin: 3px 19px 31px 44px; border: 0; color: #898989; outline: none; display: block; float: right;}
+.otzivi_mail {width: 166px; height: 16px; padding: 0; margin: 0; border: 0; color: #898989; outline: none; display: block; float: right;}
+
+.omg_goga {position: relative; float: left; margin: -1px 0 0 -1px; z-index: 3; list-style: none;}
+.omg_goga li, .omg_goga li a {float: left; display: block;}
+.omg_goga img {display: block;}
+
+.same {float: left; width: 33%; padding: 10px 0 0;}
+.same_photo {float: left; display: block; padding: 0 0 0 10px;}
+.same_block {margin: 0 10px 0 50px;}
+.same_block b {display: block;}
+.same_block a {font-size: 13px; color: #000;}
+
+
+/* ======================================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Moto */
+#moto .content h1 {color: #1a5376;}
+#moto .cat_descr span {color: #196e92;}
+#moto .review h4 {color: #175072;}
+#moto .news h4 {color: #000;}
+#moto .news li a {color: #000;}
+#moto .archive {color: #000;}
+
+#moto .tags li.sel {background: url(i/nokia/tag-right.png) no-repeat right top;}
+#moto .tags li.sel a {background: url(i/nokia/tag-left.png) no-repeat left top;}
+#moto .tags li.sel span {background: url(i/nokia/tag-sel.png) repeat-x;}
+#moto .way {color: #333;}
+#moto .way a {color: #196E92; border-bottom: 1px dotted #1e5c7e;}
+
+#moto .buy span {color: #164f71;}
+#moto .more {color: #164f71;}
+#moto .otzivi h5 {color: #164e70;}
+#moto .otzivi dt a {color: #622c96;}
+#moto .stars {background: url(i/nokia/rating.png) no-repeat;}
+#moto .stars span {background: url(i/nokia/rating-sel.png) no-repeat;}
+
+/* Nokia */
+#nokia .content h1 {color: #1a5376;}
+#nokia .cat_descr span {color: #50b62e;}
+#nokia .review h4 {color: #175072;}
+#nokia .news h4 {color: #175072;}
+#nokia .news li a {color: #175072;}
+#nokia .archive {color: #175072;}
+
+#nokia .tags li.sel {background: url(i/nokia/tag-right.png) no-repeat right top;}
+#nokia .tags li.sel a {background: url(i/nokia/tag-left.png) no-repeat left top;}
+#nokia .tags li.sel span {background: url(i/nokia/tag-sel.png) repeat-x;}
+#nokia .way {color: #205e81;}
+#nokia .way a {color: #50b62e; border-bottom: 1px dotted #1e5c7e;}
+
+#nokia .buy span {color: #164f71;}
+#nokia .more {color: #164f71;}
+#nokia .otzivi h5 {color: #164e70;}
+#nokia .otzivi dt a {color: #622c96;}
+#nokia .stars {background: url(i/nokia/rating.png) no-repeat;}
+#nokia .stars span {background: url(i/nokia/rating-sel.png) no-repeat;}
+
+/* Sony */
+#sony .content h1 {color: #72b8ba;}
+#sony .cat_descr span {color: #72b8ba;}
+#sony .review h4 {color: #72b8ba;}
+#sony .news h4 {color: #72b8ba;}
+#sony .news li a {color: #000;}
+#sony .archive {color: #175072;}
+
+#sony .tags li.sel {background: url(i/nokia/tag-right.png) no-repeat right top;}
+#sony .tags li.sel a {background: url(i/nokia/tag-left.png) no-repeat left top;}
+#sony .tags li.sel span {background: url(i/nokia/tag-sel.png) repeat-x;}
+#sony .way {color: #71b9b9;}
+#sony .way a {color: #858585; border-bottom: 1px dotted #1e5c7e;}
+
+#sony .buy span {color: #164f71;}
+#sony .more {color: #164f71;}
+#sony .otzivi h5 {color: #164e70;}
+#sony .otzivi dt a {color: #622c96;}
+#sony .stars {background: url(i/nokia/rating.png) no-repeat;}
+#sony .stars span {background: url(i/nokia/rating-sel.png) no-repeat;}
+
+/* Samsung */
+#samsung .content h1 {color: #f37124;}
+#samsung .cat_descr span {color: #f37124;}
+#samsung .review h4 {color: #f37124;}
+#samsung .news h4 {color: #000;}
+#samsung .news li a {color: #000;}
+#samsung .archive {color: #000;}
+
+#samsung .tags li.sel {background: url(i/samsung/tag-right.png) no-repeat right top;}
+#samsung .tags li.sel a {background: url(i/samsung/tag-left.png) no-repeat left top;}
+#samsung .tags li.sel span {background: url(i/samsung/tag-sel.png) repeat-x;}
+#samsung .way {color: #fff; position: absolute; left: 170px; top: 84px;}
+#samsung .way a {color: #fff;}
+
+#samsung .buy span {color: #f26f25;}
+#samsung .more {color: #f26f25;}
+#samsung .otzivi h5 {color: #f26f25;}
+#samsung .otzivi dt a {color: #f89414;}
+#samsung .stars {background: url(i/nokia/rating.png) no-repeat;}
+#samsung .stars span {background: url(i/samsung/rating-sel.png) no-repeat;}
+
+
+
+
+
+
+
+/* Footer
+======================================= */
+.footer {height: 122px; margin: -122px 0 0; position: relative; z-index: 20; min-width: 1000px;}
+.footer_top {margin: 0 25px; height: 48px;}
+.footer_inner {padding: 10px 38px 0 30px; color: #fff; font-size: 14px;}
+.footer_evoo {float: left;}
+.footer_evoo img {display: block; width: 85px; height: 29px;}
+.footer_inner address {float: left; padding: 8px 13px 0;}
+.footer_inner ul {float: right; list-style: none;}
+.footer_inner ul li {float: left; padding: 8px 0 0 20px;}
+.footer_inner ul a {text-decoration: none; color: #fff;}
+
+/*(c)tz*/
+.morediv, .less {
+        display: none;
+}
+
+div.morediv > table > tbody > tr > td
+{
+        border-bottom: none;
+}
+
+a.more {cursor:pointer}
+table.smallphotos img
+{
+        visibility: hidden;
+}
+
+table.smallphotos a
+{
+        background-position: center 10px;
+        background-repeat: no-repeat;
+        height: 70px;
+        cursor: pointer;
+}
+#mainphoto {cursor:pointer}

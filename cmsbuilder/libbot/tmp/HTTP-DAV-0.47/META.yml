@@ -1,0 +1,32 @@
+--- #YAML:1.0
+name:               HTTP-DAV
+version:            0.47
+abstract:           ~
+author:  []
+license:            unknown
+distribution_type:  module
+configure_requires:
+    ExtUtils::MakeMaker:  0
+build_requires:
+    ExtUtils::MakeMaker:  0
+requires:
+    Cwd:               0
+    File::Temp:        0
+    Getopt::Long:      0
+    LWP:               5.48
+    Pod::Usage:        0
+    Scalar::Util:      0
+    Term::ReadLine:    0
+    Text::ParseWords:  0
+    Time::Local:       0
+    URI:               0
+    URI::Escape:       0
+    XML::DOM:          0
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.55_02
+meta-spec:
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4
